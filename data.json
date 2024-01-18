@@ -1,0 +1,890 @@
+{
+  "template": [
+    {
+      "id": "1",
+      "name": "Test 1",
+      "template": {
+        "nodes": [
+          {
+            "width": 150,
+            "height": 40,
+            "id": "1",
+            "type": "input",
+            "data": {
+              "label": "input"
+            },
+            "properties": [
+              "confidentiality"
+            ],
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "positionAbsolute": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "width": 150,
+            "height": 40,
+            "id": "2",
+            "data": {
+              "label": "node 2"
+            },
+            "position": {
+              "x": 0,
+              "y": 100
+            },
+            "properties": [
+              "confidentiality",
+              "authorization"
+            ],
+            "positionAbsolute": {
+              "x": 0,
+              "y": 100
+            }
+          },
+          {
+            "width": 150,
+            "height": 40,
+            "id": "2a",
+            "data": {
+              "label": "node 2a"
+            },
+            "position": {
+              "x": 0,
+              "y": 200
+            },
+            "properties": [
+              "confidentiality"
+            ],
+            "positionAbsolute": {
+              "x": 0,
+              "y": 200
+            }
+          },
+          {
+            "width": 150,
+            "height": 40,
+            "id": "2b",
+            "data": {
+              "label": "node 2b"
+            },
+            "position": {
+              "x": 0,
+              "y": 300
+            },
+            "properties": [
+              "integrity"
+            ],
+            "positionAbsolute": {
+              "x": 0,
+              "y": 300
+            }
+          },
+          {
+            "width": 150,
+            "height": 40,
+            "id": "2c",
+            "data": {
+              "label": "node 2c"
+            },
+            "position": {
+              "x": 0,
+              "y": 400
+            },
+            "properties": [
+              "availability",
+              "non-repudiation"
+            ],
+            "positionAbsolute": {
+              "x": 0,
+              "y": 400
+            }
+          },
+          {
+            "width": 150,
+            "height": 40,
+            "id": "2d",
+            "data": {
+              "label": "node 2d"
+            },
+            "position": {
+              "x": 0,
+              "y": 500
+            },
+            "properties": [
+              "authenticity"
+            ],
+            "positionAbsolute": {
+              "x": 0,
+              "y": 500
+            },
+            "selected": false,
+            "dragging": false
+          },
+          {
+            "width": 150,
+            "height": 40,
+            "id": "3",
+            "data": {
+              "label": "node 3"
+            },
+            "position": {
+              "x": 203.12240305543764,
+              "y": -10.84530846803628
+            },
+            "properties": [
+              "confidentiality",
+              "integrity"
+            ],
+            "positionAbsolute": {
+              "x": 203.12240305543764,
+              "y": -10.84530846803628
+            },
+            "selected": false,
+            "dragging": false
+          },
+          {
+            "width": 150,
+            "height": 40,
+            "id": "N4",
+            "type": "output",
+            "position": {
+              "x": -2.605342835409033,
+              "y": 584.5396065188039
+            },
+            "properties": [
+              "Confidentiality",
+              "Integrity"
+            ],
+            "data": {
+              "label": "Output Node"
+            },
+            "selected": true,
+            "positionAbsolute": {
+              "x": -2.605342835409033,
+              "y": 584.5396065188039
+            },
+            "dragging": false
+          }
+        ],
+        "edges": [
+          {
+            "markerEnd": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "animated": true,
+            "style": {
+              "stroke": "black"
+            },
+            "id": "e12",
+            "source": "1",
+            "target": "2"
+          },
+          {
+            "markerEnd": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "animated": true,
+            "style": {
+              "stroke": "black"
+            },
+            "id": "e13",
+            "source": "1",
+            "target": "3"
+          },
+          {
+            "markerEnd": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "animated": true,
+            "style": {
+              "stroke": "black"
+            },
+            "id": "e22a",
+            "source": "2",
+            "target": "2a"
+          },
+          {
+            "markerEnd": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "animated": true,
+            "style": {
+              "stroke": "black"
+            },
+            "id": "e22b",
+            "source": "2",
+            "target": "2b"
+          },
+          {
+            "markerEnd": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "animated": true,
+            "style": {
+              "stroke": "black"
+            },
+            "id": "e22c",
+            "source": "2",
+            "target": "2c"
+          },
+          {
+            "markerEnd": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "animated": true,
+            "style": {
+              "stroke": "black"
+            },
+            "id": "e2c2d",
+            "source": "2c",
+            "target": "2d"
+          },
+          {
+            "markerEnd": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "animated": true,
+            "style": {
+              "stroke": "black"
+            },
+            "source": "2d",
+            "sourceHandle": null,
+            "target": "N4",
+            "targetHandle": null,
+            "id": "reactflow__edge-2d-N4"
+          }
+        ],
+        "viewport": {
+          "x": 284.0459076357264,
+          "y": 182.82696755392544,
+          "zoom": 0.6930978010120838
+        }
+      }
+    },
+    {
+      "id": "2",
+      "name": "Test 2",
+      "type": "api",
+      "template": {
+        "nodes": [
+          {
+            "width": 150,
+            "height": 40,
+            "id": "1",
+            "type": "input",
+            "data": {
+              "label": "input"
+            },
+            "properties": [
+              "confidentiality"
+            ],
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "positionAbsolute": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "width": 150,
+            "height": 40,
+            "id": "2",
+            "data": {
+              "label": "node 2"
+            },
+            "position": {
+              "x": 0,
+              "y": 100
+            },
+            "properties": [
+              "confidentiality",
+              "authorization"
+            ],
+            "positionAbsolute": {
+              "x": 0,
+              "y": 100
+            }
+          },
+          {
+            "width": 150,
+            "height": 40,
+            "id": "2a",
+            "data": {
+              "label": "node 2a"
+            },
+            "position": {
+              "x": 0,
+              "y": 200
+            },
+            "properties": [
+              "confidentiality"
+            ],
+            "positionAbsolute": {
+              "x": 0,
+              "y": 200
+            }
+          },
+          {
+            "width": 150,
+            "height": 40,
+            "id": "2b",
+            "data": {
+              "label": "node 2b"
+            },
+            "position": {
+              "x": 0,
+              "y": 300
+            },
+            "properties": [
+              "integrity"
+            ],
+            "positionAbsolute": {
+              "x": 0,
+              "y": 300
+            }
+          }
+        ],
+        "edges": [
+          {
+            "id": "e12",
+            "source": "1",
+            "target": "2",
+            "animated": true
+          },
+          {
+            "id": "e13",
+            "source": "1",
+            "target": "3",
+            "animated": true
+          },
+          {
+            "id": "e22a",
+            "source": "2",
+            "target": "2a",
+            "animated": true
+          },
+          {
+            "source": "2a",
+            "sourceHandle": null,
+            "target": "2b",
+            "targetHandle": null,
+            "id": "reactflow__edge-2a-2b"
+          }
+        ],
+        "viewport": {
+          "x": 160.44652406417117,
+          "y": -48.95454545454538,
+          "zoom": 1.7673796791443848
+        }
+      }
+    },
+    {
+      "id": "3",
+      "name": "Test 3",
+      "template": {
+        "nodes": [
+          {
+            "width": 150,
+            "height": 40,
+            "id": "N0",
+            "type": "default",
+            "position": {
+              "x": 155.52499389648438,
+              "y": 161.6374969482422
+            },
+            "properties": [
+              "Confidentiality",
+              "Integrity"
+            ],
+            "data": {
+              "label": "Default Node"
+            },
+            "positionAbsolute": {
+              "x": 155.52499389648438,
+              "y": 161.6374969482422
+            },
+            "selected": false,
+            "dragging": false
+          },
+          {
+            "width": 150,
+            "height": 40,
+            "id": "N1",
+            "type": "default",
+            "position": {
+              "x": 350.78749084472656,
+              "y": 245.95624542236328
+            },
+            "properties": [
+              "Confidentiality"
+            ],
+            "data": {
+              "label": "LIDAR"
+            },
+            "positionAbsolute": {
+              "x": 350.78749084472656,
+              "y": 245.95624542236328
+            },
+            "selected": true,
+            "dragging": false
+          },
+          {
+            "width": 150,
+            "height": 40,
+            "id": "N3",
+            "type": "output",
+            "position": {
+              "x": 183.55335604248052,
+              "y": 353.0146280212402
+            },
+            "properties": [
+              "Confidentiality",
+              "Integrity"
+            ],
+            "data": {
+              "label": "Output Node"
+            },
+            "positionAbsolute": {
+              "x": 183.55335604248052,
+              "y": 353.0146280212402
+            },
+            "selected": false,
+            "dragging": false
+          },
+          {
+            "width": 150,
+            "height": 40,
+            "id": "N4",
+            "type": "input",
+            "position": {
+              "x": 337.7069560424805,
+              "y": 84.33622802124027
+            },
+            "properties": [
+              "Confidentiality",
+              "Integrity"
+            ],
+            "data": {
+              "label": "Input"
+            },
+            "positionAbsolute": {
+              "x": 337.7069560424805,
+              "y": 84.33622802124027
+            },
+            "selected": false,
+            "dragging": false
+          }
+        ],
+        "edges": [
+          {
+            "markerEnd": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "animated": true,
+            "style": {
+              "stroke": "black"
+            },
+            "source": "N4",
+            "sourceHandle": null,
+            "target": "N0",
+            "targetHandle": null,
+            "id": "reactflow__edge-N4-N0"
+          },
+          {
+            "markerEnd": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "animated": true,
+            "style": {
+              "stroke": "black"
+            },
+            "source": "N0",
+            "sourceHandle": null,
+            "target": "N1",
+            "targetHandle": null,
+            "id": "reactflow__edge-N0-N1"
+          },
+          {
+            "markerEnd": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "animated": true,
+            "style": {
+              "stroke": "black"
+            },
+            "source": "N1",
+            "sourceHandle": null,
+            "target": "N3",
+            "targetHandle": null,
+            "id": "reactflow__edge-N1-N3"
+          }
+        ],
+        "viewport": {
+          "x": 511.3707349449928,
+          "y": 177.0764254873081,
+          "zoom": 0.5
+        }
+      }
+    },
+    {
+      "id": "4",
+      "name": "Test 4",
+      "template": {
+        "nodes": [
+          {
+            "width": 150,
+            "height": 40,
+            "id": "N0",
+            "type": "input",
+            "position": {
+              "x": 262.5249938964844,
+              "y": 95.63749694824219
+            },
+            "properties": [
+              "Confidentiality",
+              "Integrity"
+            ],
+            "data": {
+              "label": "Input"
+            },
+            "positionAbsolute": {
+              "x": 262.5249938964844,
+              "y": 95.63749694824219
+            }
+          },
+          {
+            "width": 150,
+            "height": 40,
+            "id": "N1",
+            "type": "output",
+            "position": {
+              "x": 279.7301416260479,
+              "y": 241.46474160290825
+            },
+            "properties": [
+              "Confidentiality",
+              "Integrity"
+            ],
+            "data": {
+              "label": "Output Node"
+            },
+            "selected": false,
+            "positionAbsolute": {
+              "x": 279.7301416260479,
+              "y": 241.46474160290825
+            },
+            "dragging": false
+          },
+          {
+            "width": 150,
+            "height": 40,
+            "id": "N2",
+            "type": "default",
+            "position": {
+              "x": 257.37756776126616,
+              "y": 161.8698677496963
+            },
+            "properties": [
+              "Confidentiality"
+            ],
+            "data": {
+              "label": "LIDAR"
+            },
+            "selected": true,
+            "positionAbsolute": {
+              "x": 257.37756776126616,
+              "y": 161.8698677496963
+            },
+            "dragging": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "N0",
+            "sourceHandle": null,
+            "target": "N2",
+            "targetHandle": null,
+            "id": "reactflow__edge-N0-N2"
+          },
+          {
+            "source": "N2",
+            "sourceHandle": null,
+            "target": "N1",
+            "targetHandle": null,
+            "id": "reactflow__edge-N2-N1"
+          }
+        ],
+        "viewport": {
+          "x": 106.24486447746767,
+          "y": -61.102238551150435,
+          "zoom": 2
+        }
+      }
+    },
+    {
+      "id": "5",
+      "name": "Test 5",
+      "template": {
+        "nodes": [
+          {
+            "width": 150,
+            "height": 40,
+            "id": "N0",
+            "type": "input",
+            "position": {
+              "x": 590.7578189986798,
+              "y": 130.6490297037968
+            },
+            "properties": [
+              "Confidentiality",
+              "Integrity"
+            ],
+            "data": {
+              "label": "Input"
+            },
+            "positionAbsolute": {
+              "x": 590.7578189986798,
+              "y": 130.6490297037968
+            }
+          },
+          {
+            "width": 150,
+            "height": 40,
+            "id": "N1",
+            "type": "default",
+            "position": {
+              "x": 685.7578189986798,
+              "y": 212.9677781779179
+            },
+            "properties": [
+              "Confidentiality",
+              "Integrity"
+            ],
+            "data": {
+              "label": "Default Node"
+            },
+            "positionAbsolute": {
+              "x": 685.7578189986798,
+              "y": 212.9677781779179
+            }
+          },
+          {
+            "width": 150,
+            "height": 40,
+            "id": "N2",
+            "type": "output",
+            "position": {
+              "x": 534.915694110416,
+              "y": 294.13674223687457
+            },
+            "properties": [
+              "Confidentiality",
+              "Integrity"
+            ],
+            "data": {
+              "label": "Output Node"
+            },
+            "positionAbsolute": {
+              "x": 534.915694110416,
+              "y": 294.13674223687457
+            }
+          }
+        ],
+        "edges": [
+          {
+            "source": "N0",
+            "sourceHandle": null,
+            "target": "N1",
+            "targetHandle": null,
+            "id": "reactflow__edge-N0-N1"
+          },
+          {
+            "source": "N1",
+            "sourceHandle": null,
+            "target": "N2",
+            "targetHandle": null,
+            "id": "reactflow__edge-N1-N2"
+          }
+        ],
+        "viewport": {
+          "x": -181.1416926920349,
+          "y": -29.74688126854778,
+          "zoom": 1.398616082738461
+        }
+      }
+    }
+  ],
+  "sidebarNode": [
+    {
+      "id": "1",
+      "type": "input",
+      "data": {
+        "label": "Input"
+      },
+      "position": {
+        "x": 250,
+        "y": 25
+      },
+      "properties": [
+        "Confidentiality",
+        "Integrity"
+      ]
+    },
+    {
+      "id": "2",
+      "type": "default",
+      "data": {
+        "label": "Default Node"
+      },
+      "position": {
+        "x": 250,
+        "y": 25
+      },
+      "properties": [
+        "Confidentiality",
+        "Integrity"
+      ]
+    },
+    {
+      "id": "3",
+      "type": "output",
+      "data": {
+        "label": "Output Node"
+      },
+      "position": {
+        "x": 250,
+        "y": 25
+      },
+      "properties": [
+        "Confidentiality",
+        "Integrity"
+      ]
+    },
+    {
+      "id": "4",
+      "data": {
+        "label": "LIDAR"
+      },
+      "type": "default",
+      "properties": [
+        "Confidentiality"
+      ]
+    },
+    {
+      "id": "5",
+      "data": {
+        "label": "Tabular"
+      },
+      "type": "default",
+      "properties": [
+        "Availability"
+      ]
+    },
+    {
+      "id": "6",
+      "data": {
+        "label": "new1"
+      },
+      "type": "input",
+      "properties": [
+        "Confidentiality"
+      ]
+    }
+  ]
+}

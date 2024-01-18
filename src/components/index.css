@@ -1,0 +1,64 @@
+
+   .dndnode {
+    height: 20px;
+    padding: 4px 8px;
+    border: 2px solid rgb(233, 233, 85);
+    box-shadow: 0px 0px 5px rgb(233, 233, 85);
+    border-radius: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+    width: fit-content;
+    font-family:'Inter', sans-serif;
+    font-size: 16px;   
+  }
+  
+  .dndnode.input {
+    border-color: #16c260;
+    box-shadow: 0px 0px 5px #16c260;
+  }
+  
+   .dndnode.output {
+    border-color: #ff0072;
+    box-shadow: 0px 0px 5px #ff0072;
+
+  }
+  
+   .reactflow-wrapper {
+    flex-grow: 1;
+    height: 100%;
+  }
+  
+   .selectall {
+    margin-top: 10px;
+  }
+  
+  @media screen and (min-width: 768px) {
+  
+     aside {
+      width: 20%;
+      max-width: 250px;
+    }
+  }
+  
+  .react-flow .react-flow__handle {
+    width: 20px;
+    height: 10px;
+    border-radius: 3px;
+    background-color: #784be8;
+  }
+
+.react-flow__node-input{
+   background-color: rgb(184, 253, 185);
+  }
+
+  .react-flow__node-default{
+    background-color: rgb(235, 252, 85);
+   }
+
+   .react-flow__node-output{
+    background-color: rgb(255, 133, 169);
+   }
+  
