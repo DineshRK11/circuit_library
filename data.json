@@ -2,170 +2,72 @@
   "template": [
     {
       "id": "1",
-      "name": "Test 1",
+      "name": "New 2",
       "template": {
         "nodes": [
           {
             "width": 150,
             "height": 40,
-            "id": "1",
+            "id": "cec4a3eb-6a8b-4642-b128-c0e4ec1aeca1",
             "type": "input",
-            "data": {
-              "label": "input"
-            },
-            "properties": [
-              "confidentiality"
-            ],
             "position": {
-              "x": 0,
-              "y": 0
-            },
-            "positionAbsolute": {
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "width": 150,
-            "height": 40,
-            "id": "2",
-            "data": {
-              "label": "node 2"
-            },
-            "position": {
-              "x": 0,
-              "y": 100
-            },
-            "properties": [
-              "confidentiality",
-              "authorization"
-            ],
-            "positionAbsolute": {
-              "x": 0,
-              "y": 100
-            }
-          },
-          {
-            "width": 150,
-            "height": 40,
-            "id": "2a",
-            "data": {
-              "label": "node 2a"
-            },
-            "position": {
-              "x": 0,
-              "y": 200
-            },
-            "properties": [
-              "confidentiality"
-            ],
-            "positionAbsolute": {
-              "x": 0,
-              "y": 200
-            }
-          },
-          {
-            "width": 150,
-            "height": 40,
-            "id": "2b",
-            "data": {
-              "label": "node 2b"
-            },
-            "position": {
-              "x": 0,
-              "y": 300
-            },
-            "properties": [
-              "integrity"
-            ],
-            "positionAbsolute": {
-              "x": 0,
-              "y": 300
-            }
-          },
-          {
-            "width": 150,
-            "height": 40,
-            "id": "2c",
-            "data": {
-              "label": "node 2c"
-            },
-            "position": {
-              "x": 0,
-              "y": 400
-            },
-            "properties": [
-              "availability",
-              "non-repudiation"
-            ],
-            "positionAbsolute": {
-              "x": 0,
-              "y": 400
-            }
-          },
-          {
-            "width": 150,
-            "height": 40,
-            "id": "2d",
-            "data": {
-              "label": "node 2d"
-            },
-            "position": {
-              "x": 0,
-              "y": 500
-            },
-            "properties": [
-              "authenticity"
-            ],
-            "positionAbsolute": {
-              "x": 0,
-              "y": 500
-            },
-            "selected": false,
-            "dragging": false
-          },
-          {
-            "width": 150,
-            "height": 40,
-            "id": "3",
-            "data": {
-              "label": "node 3"
-            },
-            "position": {
-              "x": 203.12240305543764,
-              "y": -10.84530846803628
-            },
-            "properties": [
-              "confidentiality",
-              "integrity"
-            ],
-            "positionAbsolute": {
-              "x": 203.12240305543764,
-              "y": -10.84530846803628
-            },
-            "selected": false,
-            "dragging": false
-          },
-          {
-            "width": 150,
-            "height": 40,
-            "id": "N4",
-            "type": "output",
-            "position": {
-              "x": -2.605342835409033,
-              "y": 584.5396065188039
+              "x": 607.4375,
+              "y": 106
             },
             "properties": [
               "Confidentiality",
               "Integrity"
             ],
             "data": {
-              "label": "Output Node"
+              "label": "Input"
+            },
+            "positionAbsolute": {
+              "x": 607.4375,
+              "y": 106
+            }
+          },
+          {
+            "width": 150,
+            "height": 40,
+            "id": "af869f03-8f34-45c0-b32e-e312d4002002",
+            "type": "default",
+            "position": {
+              "x": 605.6608245645095,
+              "y": 186.66652804349968
+            },
+            "properties": [
+              "Confidentiality",
+              "Integrity"
+            ],
+            "data": {
+              "label": "Default Node"
             },
             "selected": true,
             "positionAbsolute": {
-              "x": -2.605342835409033,
-              "y": 584.5396065188039
+              "x": 605.6608245645095,
+              "y": 186.66652804349968
+            },
+            "dragging": false
+          },
+          {
+            "width": 150,
+            "height": 40,
+            "id": "81b69152-e77c-4ab1-a7b7-aaf2a59e53c3",
+            "type": "output",
+            "position": {
+              "x": 619.409152453651,
+              "y": 259.4794528661716
+            },
+            "properties": [
+              "Authorization"
+            ],
+            "data": {
+              "label": "test 6"
+            },
+            "selected": false,
+            "positionAbsolute": {
+              "x": 619.409152453651,
+              "y": 259.4794528661716
             },
             "dragging": false
           }
@@ -188,624 +90,247 @@
             "style": {
               "stroke": "black"
             },
-            "id": "e12",
-            "source": "1",
-            "target": "2"
-          },
-          {
-            "markerEnd": {
-              "type": "arrowclosed",
-              "width": 20,
-              "height": 20,
-              "color": "#FF0072"
-            },
-            "markerStart": {
-              "type": "arrowclosed",
-              "width": 20,
-              "height": 20,
-              "color": "#FF0072"
-            },
-            "animated": true,
-            "style": {
-              "stroke": "black"
-            },
-            "id": "e13",
-            "source": "1",
-            "target": "3"
-          },
-          {
-            "markerEnd": {
-              "type": "arrowclosed",
-              "width": 20,
-              "height": 20,
-              "color": "#FF0072"
-            },
-            "markerStart": {
-              "type": "arrowclosed",
-              "width": 20,
-              "height": 20,
-              "color": "#FF0072"
-            },
-            "animated": true,
-            "style": {
-              "stroke": "black"
-            },
-            "id": "e22a",
-            "source": "2",
-            "target": "2a"
-          },
-          {
-            "markerEnd": {
-              "type": "arrowclosed",
-              "width": 20,
-              "height": 20,
-              "color": "#FF0072"
-            },
-            "markerStart": {
-              "type": "arrowclosed",
-              "width": 20,
-              "height": 20,
-              "color": "#FF0072"
-            },
-            "animated": true,
-            "style": {
-              "stroke": "black"
-            },
-            "id": "e22b",
-            "source": "2",
-            "target": "2b"
-          },
-          {
-            "markerEnd": {
-              "type": "arrowclosed",
-              "width": 20,
-              "height": 20,
-              "color": "#FF0072"
-            },
-            "markerStart": {
-              "type": "arrowclosed",
-              "width": 20,
-              "height": 20,
-              "color": "#FF0072"
-            },
-            "animated": true,
-            "style": {
-              "stroke": "black"
-            },
-            "id": "e22c",
-            "source": "2",
-            "target": "2c"
-          },
-          {
-            "markerEnd": {
-              "type": "arrowclosed",
-              "width": 20,
-              "height": 20,
-              "color": "#FF0072"
-            },
-            "markerStart": {
-              "type": "arrowclosed",
-              "width": 20,
-              "height": 20,
-              "color": "#FF0072"
-            },
-            "animated": true,
-            "style": {
-              "stroke": "black"
-            },
-            "id": "e2c2d",
-            "source": "2c",
-            "target": "2d"
-          },
-          {
-            "markerEnd": {
-              "type": "arrowclosed",
-              "width": 20,
-              "height": 20,
-              "color": "#FF0072"
-            },
-            "markerStart": {
-              "type": "arrowclosed",
-              "width": 20,
-              "height": 20,
-              "color": "#FF0072"
-            },
-            "animated": true,
-            "style": {
-              "stroke": "black"
-            },
-            "source": "2d",
+            "source": "cec4a3eb-6a8b-4642-b128-c0e4ec1aeca1",
             "sourceHandle": null,
-            "target": "N4",
+            "target": "af869f03-8f34-45c0-b32e-e312d4002002",
             "targetHandle": null,
-            "id": "reactflow__edge-2d-N4"
+            "id": "reactflow__edge-cec4a3eb-6a8b-4642-b128-c0e4ec1aeca1-af869f03-8f34-45c0-b32e-e312d4002002"
+          },
+          {
+            "markerEnd": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "animated": true,
+            "style": {
+              "stroke": "black"
+            },
+            "source": "af869f03-8f34-45c0-b32e-e312d4002002",
+            "sourceHandle": null,
+            "target": "81b69152-e77c-4ab1-a7b7-aaf2a59e53c3",
+            "targetHandle": null,
+            "id": "reactflow__edge-af869f03-8f34-45c0-b32e-e312d4002002-81b69152-e77c-4ab1-a7b7-aaf2a59e53c3"
           }
         ],
         "viewport": {
-          "x": 284.0459076357264,
-          "y": 182.82696755392544,
-          "zoom": 0.6930978010120838
+          "x": -151.9546155317579,
+          "y": 8.77296644069132,
+          "zoom": 1.1250584846888083
         }
       }
     },
     {
       "id": "2",
-      "name": "Test 2",
-      "type": "api",
+      "name": "New 1",
       "template": {
         "nodes": [
           {
             "width": 150,
             "height": 40,
-            "id": "1",
+            "id": "e48d2ee6-55d1-4ae9-9071-fe60cbb6b5480",
+            "data": {
+              "label": "Input"
+            },
             "type": "input",
-            "data": {
-              "label": "input"
-            },
-            "properties": [
-              "confidentiality"
-            ],
             "position": {
-              "x": 0,
-              "y": 0
-            },
-            "positionAbsolute": {
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "width": 150,
-            "height": 40,
-            "id": "2",
-            "data": {
-              "label": "node 2"
-            },
-            "position": {
-              "x": 0,
-              "y": 100
-            },
-            "properties": [
-              "confidentiality",
-              "authorization"
-            ],
-            "positionAbsolute": {
-              "x": 0,
-              "y": 100
-            }
-          },
-          {
-            "width": 150,
-            "height": 40,
-            "id": "2a",
-            "data": {
-              "label": "node 2a"
-            },
-            "position": {
-              "x": 0,
-              "y": 200
-            },
-            "properties": [
-              "confidentiality"
-            ],
-            "positionAbsolute": {
-              "x": 0,
-              "y": 200
-            }
-          },
-          {
-            "width": 150,
-            "height": 40,
-            "id": "2b",
-            "data": {
-              "label": "node 2b"
-            },
-            "position": {
-              "x": 0,
-              "y": 300
-            },
-            "properties": [
-              "integrity"
-            ],
-            "positionAbsolute": {
-              "x": 0,
-              "y": 300
-            }
-          }
-        ],
-        "edges": [
-          {
-            "id": "e12",
-            "source": "1",
-            "target": "2",
-            "animated": true
-          },
-          {
-            "id": "e13",
-            "source": "1",
-            "target": "3",
-            "animated": true
-          },
-          {
-            "id": "e22a",
-            "source": "2",
-            "target": "2a",
-            "animated": true
-          },
-          {
-            "source": "2a",
-            "sourceHandle": null,
-            "target": "2b",
-            "targetHandle": null,
-            "id": "reactflow__edge-2a-2b"
-          }
-        ],
-        "viewport": {
-          "x": 160.44652406417117,
-          "y": -48.95454545454538,
-          "zoom": 1.7673796791443848
-        }
-      }
-    },
-    {
-      "id": "3",
-      "name": "Test 3",
-      "template": {
-        "nodes": [
-          {
-            "width": 150,
-            "height": 40,
-            "id": "N0",
-            "type": "default",
-            "position": {
-              "x": 155.52499389648438,
-              "y": 161.6374969482422
+              "x": 607.4375,
+              "y": 106
             },
             "properties": [
               "Confidentiality",
               "Integrity"
             ],
-            "data": {
-              "label": "Default Node"
-            },
             "positionAbsolute": {
-              "x": 155.52499389648438,
-              "y": 161.6374969482422
-            },
-            "selected": false,
-            "dragging": false
+              "x": 607.4375,
+              "y": 106
+            }
           },
           {
             "width": 150,
             "height": 40,
-            "id": "N1",
+            "id": "e48d2ee6-55d1-4ae9-9071-fe60cbb6b5481",
+            "data": {
+              "label": "Default Node"
+            },
             "type": "default",
             "position": {
-              "x": 350.78749084472656,
-              "y": 245.95624542236328
+              "x": 605.6608245645095,
+              "y": 186.66652804349968
+            },
+            "properties": [
+              "Confidentiality",
+              "Integrity"
+            ],
+            "positionAbsolute": {
+              "x": 605.6608245645095,
+              "y": 186.66652804349968
+            }
+          },
+          {
+            "width": 150,
+            "height": 40,
+            "id": "e48d2ee6-55d1-4ae9-9071-fe60cbb6b5482",
+            "data": {
+              "label": "test 6"
+            },
+            "type": "output",
+            "position": {
+              "x": 619.409152453651,
+              "y": 259.4794528661716
+            },
+            "properties": [
+              "Authorization"
+            ],
+            "positionAbsolute": {
+              "x": 619.409152453651,
+              "y": 259.4794528661716
+            }
+          },
+          {
+            "width": 150,
+            "height": 40,
+            "id": "cd8459ed-6639-4b83-b7c4-b7276cedcc6b",
+            "type": "input",
+            "position": {
+              "x": 449.6076253204849,
+              "y": 114.63313318136944
             },
             "properties": [
               "Confidentiality"
             ],
             "data": {
-              "label": "LIDAR"
+              "label": "new1"
             },
             "positionAbsolute": {
-              "x": 350.78749084472656,
-              "y": 245.95624542236328
-            },
-            "selected": true,
-            "dragging": false
-          },
-          {
-            "width": 150,
-            "height": 40,
-            "id": "N3",
-            "type": "output",
-            "position": {
-              "x": 183.55335604248052,
-              "y": 353.0146280212402
-            },
-            "properties": [
-              "Confidentiality",
-              "Integrity"
-            ],
-            "data": {
-              "label": "Output Node"
-            },
-            "positionAbsolute": {
-              "x": 183.55335604248052,
-              "y": 353.0146280212402
-            },
-            "selected": false,
-            "dragging": false
-          },
-          {
-            "width": 150,
-            "height": 40,
-            "id": "N4",
-            "type": "input",
-            "position": {
-              "x": 337.7069560424805,
-              "y": 84.33622802124027
-            },
-            "properties": [
-              "Confidentiality",
-              "Integrity"
-            ],
-            "data": {
-              "label": "Input"
-            },
-            "positionAbsolute": {
-              "x": 337.7069560424805,
-              "y": 84.33622802124027
-            },
-            "selected": false,
-            "dragging": false
-          }
-        ],
-        "edges": [
-          {
-            "markerEnd": {
-              "type": "arrowclosed",
-              "width": 20,
-              "height": 20,
-              "color": "#FF0072"
-            },
-            "markerStart": {
-              "type": "arrowclosed",
-              "width": 20,
-              "height": 20,
-              "color": "#FF0072"
-            },
-            "animated": true,
-            "style": {
-              "stroke": "black"
-            },
-            "source": "N4",
-            "sourceHandle": null,
-            "target": "N0",
-            "targetHandle": null,
-            "id": "reactflow__edge-N4-N0"
-          },
-          {
-            "markerEnd": {
-              "type": "arrowclosed",
-              "width": 20,
-              "height": 20,
-              "color": "#FF0072"
-            },
-            "markerStart": {
-              "type": "arrowclosed",
-              "width": 20,
-              "height": 20,
-              "color": "#FF0072"
-            },
-            "animated": true,
-            "style": {
-              "stroke": "black"
-            },
-            "source": "N0",
-            "sourceHandle": null,
-            "target": "N1",
-            "targetHandle": null,
-            "id": "reactflow__edge-N0-N1"
-          },
-          {
-            "markerEnd": {
-              "type": "arrowclosed",
-              "width": 20,
-              "height": 20,
-              "color": "#FF0072"
-            },
-            "markerStart": {
-              "type": "arrowclosed",
-              "width": 20,
-              "height": 20,
-              "color": "#FF0072"
-            },
-            "animated": true,
-            "style": {
-              "stroke": "black"
-            },
-            "source": "N1",
-            "sourceHandle": null,
-            "target": "N3",
-            "targetHandle": null,
-            "id": "reactflow__edge-N1-N3"
-          }
-        ],
-        "viewport": {
-          "x": 511.3707349449928,
-          "y": 177.0764254873081,
-          "zoom": 0.5
-        }
-      }
-    },
-    {
-      "id": "4",
-      "name": "Test 4",
-      "template": {
-        "nodes": [
-          {
-            "width": 150,
-            "height": 40,
-            "id": "N0",
-            "type": "input",
-            "position": {
-              "x": 262.5249938964844,
-              "y": 95.63749694824219
-            },
-            "properties": [
-              "Confidentiality",
-              "Integrity"
-            ],
-            "data": {
-              "label": "Input"
-            },
-            "positionAbsolute": {
-              "x": 262.5249938964844,
-              "y": 95.63749694824219
+              "x": 449.6076253204849,
+              "y": 114.63313318136944
             }
           },
           {
             "width": 150,
             "height": 40,
-            "id": "N1",
-            "type": "output",
-            "position": {
-              "x": 279.7301416260479,
-              "y": 241.46474160290825
-            },
-            "properties": [
-              "Confidentiality",
-              "Integrity"
-            ],
-            "data": {
-              "label": "Output Node"
-            },
-            "selected": false,
-            "positionAbsolute": {
-              "x": 279.7301416260479,
-              "y": 241.46474160290825
-            },
-            "dragging": false
-          },
-          {
-            "width": 150,
-            "height": 40,
-            "id": "N2",
+            "id": "01880ee2-ef63-4628-9f7c-aba4d692b9a9",
             "type": "default",
             "position": {
-              "x": 257.37756776126616,
-              "y": 161.8698677496963
+              "x": 407.5413784931284,
+              "y": 195.8136095148643
             },
             "properties": [
-              "Confidentiality"
+              "Availability"
             ],
             "data": {
-              "label": "LIDAR"
+              "label": "Tabular"
             },
             "selected": true,
             "positionAbsolute": {
-              "x": 257.37756776126616,
-              "y": 161.8698677496963
+              "x": 407.5413784931284,
+              "y": 195.8136095148643
             },
             "dragging": false
           }
         ],
         "edges": [
           {
-            "source": "N0",
-            "sourceHandle": null,
-            "target": "N2",
-            "targetHandle": null,
-            "id": "reactflow__edge-N0-N2"
+            "markerEnd": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "animated": true,
+            "style": {
+              "stroke": "black"
+            },
+            "id": "reactflow__edge-cec4a3eb-6a8b-4642-b128-c0e4ec1aeca1-af869f03-8f34-45c0-b32e-e312d40020020-1 ",
+            "source": "e48d2ee6-55d1-4ae9-9071-fe60cbb6b5480",
+            "target": "e48d2ee6-55d1-4ae9-9071-fe60cbb6b5481"
           },
           {
-            "source": "N2",
+            "markerEnd": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "animated": true,
+            "style": {
+              "stroke": "black"
+            },
+            "id": "reactflow__edge-af869f03-8f34-45c0-b32e-e312d4002002-81b69152-e77c-4ab1-a7b7-aaf2a59e53c31-2 ",
+            "source": "e48d2ee6-55d1-4ae9-9071-fe60cbb6b5481",
+            "target": "e48d2ee6-55d1-4ae9-9071-fe60cbb6b5482"
+          },
+          {
+            "markerEnd": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "animated": true,
+            "style": {
+              "stroke": "black"
+            },
+            "source": "e48d2ee6-55d1-4ae9-9071-fe60cbb6b5480",
             "sourceHandle": null,
-            "target": "N1",
+            "target": "01880ee2-ef63-4628-9f7c-aba4d692b9a9",
             "targetHandle": null,
-            "id": "reactflow__edge-N2-N1"
+            "id": "reactflow__edge-e48d2ee6-55d1-4ae9-9071-fe60cbb6b5480-01880ee2-ef63-4628-9f7c-aba4d692b9a9"
+          },
+          {
+            "markerEnd": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "width": 20,
+              "height": 20,
+              "color": "#FF0072"
+            },
+            "animated": true,
+            "style": {
+              "stroke": "black"
+            },
+            "source": "cd8459ed-6639-4b83-b7c4-b7276cedcc6b",
+            "sourceHandle": null,
+            "target": "01880ee2-ef63-4628-9f7c-aba4d692b9a9",
+            "targetHandle": null,
+            "id": "reactflow__edge-cd8459ed-6639-4b83-b7c4-b7276cedcc6b-01880ee2-ef63-4628-9f7c-aba4d692b9a9"
           }
         ],
         "viewport": {
-          "x": 106.24486447746767,
-          "y": -61.102238551150435,
-          "zoom": 2
-        }
-      }
-    },
-    {
-      "id": "5",
-      "name": "Test 5",
-      "template": {
-        "nodes": [
-          {
-            "width": 150,
-            "height": 40,
-            "id": "N0",
-            "type": "input",
-            "position": {
-              "x": 590.7578189986798,
-              "y": 130.6490297037968
-            },
-            "properties": [
-              "Confidentiality",
-              "Integrity"
-            ],
-            "data": {
-              "label": "Input"
-            },
-            "positionAbsolute": {
-              "x": 590.7578189986798,
-              "y": 130.6490297037968
-            }
-          },
-          {
-            "width": 150,
-            "height": 40,
-            "id": "N1",
-            "type": "default",
-            "position": {
-              "x": 685.7578189986798,
-              "y": 212.9677781779179
-            },
-            "properties": [
-              "Confidentiality",
-              "Integrity"
-            ],
-            "data": {
-              "label": "Default Node"
-            },
-            "positionAbsolute": {
-              "x": 685.7578189986798,
-              "y": 212.9677781779179
-            }
-          },
-          {
-            "width": 150,
-            "height": 40,
-            "id": "N2",
-            "type": "output",
-            "position": {
-              "x": 534.915694110416,
-              "y": 294.13674223687457
-            },
-            "properties": [
-              "Confidentiality",
-              "Integrity"
-            ],
-            "data": {
-              "label": "Output Node"
-            },
-            "positionAbsolute": {
-              "x": 534.915694110416,
-              "y": 294.13674223687457
-            }
-          }
-        ],
-        "edges": [
-          {
-            "source": "N0",
-            "sourceHandle": null,
-            "target": "N1",
-            "targetHandle": null,
-            "id": "reactflow__edge-N0-N1"
-          },
-          {
-            "source": "N1",
-            "sourceHandle": null,
-            "target": "N2",
-            "targetHandle": null,
-            "id": "reactflow__edge-N1-N2"
-          }
-        ],
-        "viewport": {
-          "x": -181.1416926920349,
-          "y": -29.74688126854778,
-          "zoom": 1.398616082738461
+          "x": -253.78334987628432,
+          "y": -49.32853734621324,
+          "zoom": 1.3550055994758219
         }
       }
     }
@@ -884,6 +409,48 @@
       "type": "input",
       "properties": [
         "Confidentiality"
+      ]
+    },
+    {
+      "id": "7",
+      "data": {
+        "label": "new 2"
+      },
+      "type": "default",
+      "properties": [
+        "Authenticity",
+        "Authorization"
+      ]
+    },
+    {
+      "id": "8",
+      "data": {
+        "label": "Test 5"
+      },
+      "type": "default",
+      "properties": [
+        "Authenticity"
+      ]
+    },
+    {
+      "id": "9",
+      "data": {
+        "label": "test 6"
+      },
+      "type": "output",
+      "properties": [
+        "Authorization"
+      ]
+    },
+    {
+      "id": "10",
+      "data": {
+        "label": "Test 1"
+      },
+      "type": "default",
+      "properties": [
+        "Authenticity",
+        "Authorization"
       ]
     }
   ]

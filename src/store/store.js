@@ -69,7 +69,20 @@ set({
   },
   
   addTemplate:async(newTemplate)=>{
-    const res = await axios.post(`http://localhost:4000/template`,newTemplate)
+    try{
+      const res = await axios.post(`http://localhost:4000/template`,newTemplate)
+      console.log('res store', res)
+      if(res){
+        setTimeout(() => {
+          alert("Added Succesfully")
+      }, 500);  
+      }
+    }catch(err){
+      console.log('err', err)
+      setTimeout(() => {
+        alert("Something went Wrong")
+    }, 1000);  
+    }
   },
 
   dragAdd:(newNode)=>{
@@ -81,33 +94,19 @@ set({
    }))
   },
 
+  dragAddNode:(newNode,newEdge)=>{
+    // console.log("store",newNode);
+    set(state=>({
+     nodes:state.nodes.concat(newNode),
+     edges:state.edges.concat(newEdge)
+    }))
+   },
   addNewNode:async(newNode)=>{
-    // set(state=>({
-    //   sidebarNodes:[
-    //     ...state.sidebarNodes,
-    //     newNode
-    //   ]
-    //  }))
     const res = await axios.post(`http://localhost:4000/sidebarNode`,newNode);
-    // set({
-    //  sidebarNodes:res.data,
-    // })
+
   },
 
-//   addNode: (dataNode,dataEdge) =>{
-//   set((state) => ({
-//     nodes: [
-//           ...state.nodes,
-//           dataNode,
-//       ],
-//       edges:[
-//         ...state.edges,
-//         dataEdge,
 
-//       ]
-//   }))
-
-// },
 }));
 
 export default useStore;

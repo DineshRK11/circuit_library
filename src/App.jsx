@@ -13,7 +13,7 @@ function App() {
       <Sidebar />
       <Routes>
         <Route exact path="/" element={<Mainpage />} />
-        <Route exact path="/new" element={<Mainpage />} />
+        {/* <Route exact path="/new" element={<Mainpage />} /> */}
         <Route path="/edit/:id" element={<EditTemplate />} />
       </Routes>
       {/* <Footer /> */}

@@ -30,6 +30,13 @@ function Sidebar() {
     navigate(`/edit/${text.id}`);
   };
 
+  const onDragStart = (event, item) => {
+    const parseFile = JSON.stringify(item['template']);
+    // console.log("parseFile",parseFile)
+    event.dataTransfer.setData("application/template", parseFile);
+    event.dataTransfer.effectAllowed = "move";
+  };
+
   const drawer = (
     <div>
       <List>
@@ -37,21 +44,21 @@ function Sidebar() {
           Libraries
         </Typography>
         {template.map((text, index) => (
-          <ListItem key={text.id} disablePadding>
-            <ListItemButton sx={{ my: -0.5 }}>
-              <ListItemText
-                onClick={() => handleDetailsOpen(text)}
-                primary={text["name"]}
-                sx={{ textAlign: "center" }}
-              />
-            </ListItemButton>
-          </ListItem>
+          <div key={index} 
+          className={`library ${text.name}`}
+          onDragStart={(event) => onDragStart(event, text)}
+          onClick={() => handleDetailsOpen(text)}
+          draggable
+          disablePadding 
+          >
+        {text["name"]}
+          </div>
         ))}
       </List>
       <Button
         variant="outlined"
         sx={{ mx: 1, px: 1, fontSize: 12, fontWeight: 600 }}
-        onClick={() => navigate("/new")}
+        onClick={() => navigate("/")}
       >
         CREATE COMPONENT
       </Button>

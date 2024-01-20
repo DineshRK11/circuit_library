@@ -18,7 +18,7 @@ const selector = (state) => ({
 
 
 
-const AddTemplate = ({ open,handleClose, savedTemplate }) => {
+const AddTemplate = ({ open,handleClose, savedTemplate,setNodes,setEdges }) => {
 
   const [templateName, setTemplateName] = useState("");
   const { template, addTemplate, fetchAPI} = useStore(selector);
@@ -34,16 +34,14 @@ const AddTemplate = ({ open,handleClose, savedTemplate }) => {
         name:templateName,
         template:savedTemplate,
     }
-    
+   console.log('newTemplate', newTemplate)
     addTemplate(newTemplate);
     setTimeout(()=>{
         fetchAPI()
     })
     handleClose()
-    setTimeout(() => {
-        alert("Added Succesfully")
-    }, 1000);  
-
+    setNodes([])
+    setEdges([])
   };
 
 

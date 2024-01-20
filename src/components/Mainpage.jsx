@@ -16,6 +16,7 @@ import useStore from "../store/store";
 import { shallow } from "zustand/shallow";
 import "reactflow/dist/style.css";
 import AddTemplate from "./AddTemplate";
+import { v4 as uid } from "uuid";
 
 const selector = (state) => ({
   nodes: state.nodes,
@@ -24,6 +25,7 @@ const selector = (state) => ({
   onEdgesChange: state.onEdgesChange,
   onConnect: state.onConnect,
   dragAdd: state.dragAdd,
+  dragAddNode:state.dragAddNode,
   setNodes: state.setNodes,
   setEdges: state.setEdges,
 });
@@ -52,8 +54,9 @@ const edgeOptions = {
 const flowKey = "example-flow";
 
 //fn for new Id creation
-let id = 0;
-const getId = () => `N${id++}`;
+// let id = 0;
+// const getId = () => `N${id++}`;
+
 export default function Mainpage() {
   const {
     nodes,
@@ -62,6 +65,7 @@ export default function Mainpage() {
     onEdgesChange,
     onConnect,
     dragAdd,
+    dragAddNode,
     setNodes,
     setEdges,
   } = useStore(selector, shallow);
@@ -122,29 +126,68 @@ export default function Mainpage() {
     (event) => {
       event.preventDefault();
       const file = event.dataTransfer.getData("application/parseFile");
-      const parsed = JSON.parse(file);
-
-      if (typeof parsed === "undefined" || !parsed) {
-        return;
+      const template = event.dataTransfer.getData("application/template");
+      let parsedNode;
+      let parsedTemplate;
+      if(file){
+       parsedNode = JSON.parse(file);
+      }else{
+       parsedTemplate = JSON.parse(template)
       }
+
+      // if (typeof parsedNode === "undefined" || !parsedNode || typeof parsedTemplate === "undefined" || !parsedTemplate) {
+      //   return;
+      // }
 
       const position = reactFlowInstance.screenToFlowPosition({
         x: event.clientX,
         y: event.clientY,
       });
+      if(parsedNode){
       const newNode = {
-        id: getId(),
-        type: parsed.type,
+        id: uid(),
+        type: parsedNode.type,
         position,
-        properties: parsed.properties,
-        data: { label: parsed.data["label"] },
+        properties: parsedNode.properties,
+        data: { label: parsedNode.data["label"] },
       };
-
       dragAdd(newNode);
+
+      
+    };
+
+    if(parsedTemplate){
+      let newNodes=[];
+      let newEdges=[];    
+      parsedTemplate['nodes'].map((node,i)=>{
+        newNodes.push({
+          id:node.id,
+          data:node.data,
+          type:node.type,
+          position:node.position,
+          properties:node.properties,
+  
+      })
+      })
+    
+      parsedTemplate['edges'].map((edge,i)=>(
+        newEdges.push({
+         id:`${edge.id}${i}-${i+1}`,
+         source:edge.source,
+         target: edge.target,
+         ...edgeOptions,
+    })
+        ))
+   
+      dragAddNode(newNodes,newEdges);
+    }
+
     },
     [reactFlowInstance]
   );
 
+  console.log("nodes",nodes);
+  console.log('edges', edges);
   //fn for save & restore
   const onSave = useCallback(() => {
     if (reactFlowInstance) {
@@ -242,6 +285,8 @@ export default function Mainpage() {
         open={openTemplate}
         handleClose={handleClose}
         savedTemplate={savedTemplate}
+        setNodes ={setNodes}
+        setEdges ={setEdges}
       />
     </Box>
   );
