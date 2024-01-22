@@ -18,7 +18,6 @@ import "reactflow/dist/style.css";
 import { useParams } from "react-router-dom";
 import { v4 as uid } from "uuid";
 
-
 //state from Store/zustand
 const selector = (state) => ({
   selectedTemplate: state.selectedTemplate,
@@ -28,7 +27,7 @@ const selector = (state) => ({
   onEdgesChange: state.onEdgesChange,
   onConnect: state.onConnect,
   dragAdd: state.dragAdd,
-  dragAddNode:state.dragAddNode,
+  dragAddNode: state.dragAddNode,
   setNodes: state.setNodes,
   setEdges: state.setEdges,
   getTemplate: state.getTemplate,
@@ -100,6 +99,9 @@ export default function EditPage() {
     [reactFlowInstance]
   );
 
+  // console.log("nodes", nodes);
+  // console.log('edges', edges)
+
   const onDrop = useCallback(
     (event) => {
       event.preventDefault();
@@ -107,10 +109,10 @@ export default function EditPage() {
       const template = event.dataTransfer.getData("application/template");
       let parsedNode;
       let parsedTemplate;
-      if(file){
-       parsedNode = JSON.parse(file);
-      }else{
-       parsedTemplate = JSON.parse(template)
+      if (file) {
+        parsedNode = JSON.parse(file);
+      } else {
+        parsedTemplate = JSON.parse(template);
       }
 
       // if (typeof parsedNode === "undefined" || !parsedNode || typeof parsedTemplate === "undefined" || !parsedTemplate) {
@@ -121,51 +123,51 @@ export default function EditPage() {
         x: event.clientX,
         y: event.clientY,
       });
-      if(parsedNode){
-      const newNode = {
-        id: uid(),
-        type: parsedNode.type,
-        position,
-        properties: parsedNode.properties,
-        data: { label: parsedNode.data["label"] },
-      };
-      dragAdd(newNode);
+      if (parsedNode) {
+        const newNode = {
+          id: uid(),
+          type: parsedNode.type,
+          position,
+          properties: parsedNode.properties,
+          data: { label: parsedNode.data["label"] },
+        };
+        dragAdd(newNode);
+      }
 
-      
-    };
+      if (parsedTemplate) {
+        let newNodes = [];
+        let newEdges = [];
+      const randomId = Math.floor(Math.random()*1000)
+      const randomPos = Math.floor(Math.random()*100)
+        parsedTemplate["nodes"].map((node, i) => {
+          newNodes.push({
+            id: `${node.id + randomId}`,
+            data: node.data,
+            type: node.type,
+            position:{
+              x:node['position']['x']+randomPos,
+              y:node['position']['y']+randomPos
+            },
+            properties: node.properties,
+          });
+        });
 
-    if(parsedTemplate){
-      let newNodes=[];
-      let newEdges=[];
-      let Id = uid();      
-      parsedTemplate['nodes'].map((node,i)=>{
-        newNodes.push({
-          id:node.id,
-          data:node.data,
-          type:node.type,
-          position:node.position,
-          properties:node.properties,
-  
-      })
-      })
+        parsedTemplate["edges"].map((edge, i) =>
+          newEdges.push({
+            id: uid(),
+            source:`${edge.source+randomId}`,
+            target: `${edge.target+randomId}`,
+            ...edgeOptions,
+          })
+        );
+
+        dragAddNode(newNodes, newEdges);
+
+      }
     
-      parsedTemplate['edges'].map((edge,i)=>(
-        newEdges.push({
-         id:`${edge.id}${i}-${i+1} `,
-         source:edge.source,
-         target:edge.target,
-         ...edgeOptions,
-    })
-        ))
-   
-      dragAddNode(newNodes,newEdges);
-    }
-
     },
     [reactFlowInstance]
   );
-
-
 
   //for downloading the circuit and image
   function downloadImage(dataUrl) {
@@ -201,7 +203,6 @@ export default function EditPage() {
     }).then(downloadImage);
   };
 
-
   //to save and Restore circuit diagram
   const onSave = useCallback(() => {
     if (reactFlowInstance) {
@@ -221,7 +222,6 @@ export default function EditPage() {
     setNodes(flow.nodes || []);
     setEdges(flow.edges || []);
   }, [reactFlowInstance]);
-
 
   //To update the circuit diagram
   const handleSave = () => {
@@ -245,9 +245,9 @@ export default function EditPage() {
     updateTemplate(newTemplate);
     setTimeout(() => {
       alert("Updated Succesfully");
+      window.location.reload();
     }, 1000);
   };
-
 
   return (
     <Box

@@ -73,6 +73,7 @@ export default function Mainpage() {
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
   const [openTemplate, setOpenTemplate] = useState(false);
   const [savedTemplate, setSavedTemplate] = useState({});
+
   // const { setViewport } = useReactFlow();
 
   //Id creating fn
@@ -156,38 +157,45 @@ export default function Mainpage() {
       
     };
 
+    
     if(parsedTemplate){
       let newNodes=[];
-      let newEdges=[];    
+      let newEdges=[];  
+      const randomId = Math.floor(Math.random()*1000)
+      const randomPos = Math.floor(Math.random()*100)
+
       parsedTemplate['nodes'].map((node,i)=>{
         newNodes.push({
-          id:node.id,
+          id:`${node.id + randomId}`,
           data:node.data,
           type:node.type,
-          position:node.position,
+          position:{
+            x:node['position']['x']+randomPos,
+            y:node['position']['y']+randomPos
+          },
           properties:node.properties,
-  
+          
+        })
       })
-      })
-    
+      
       parsedTemplate['edges'].map((edge,i)=>(
         newEdges.push({
-         id:`${edge.id}${i}-${i+1}`,
-         source:edge.source,
-         target: edge.target,
-         ...edgeOptions,
-    })
+          id:uid(),
+          source:`${edge.source+randomId}`,
+          target: `${edge.target+randomId}`,
+          ...edgeOptions,
+        })
         ))
-   
-      dragAddNode(newNodes,newEdges);
-    }
-
+        
+        dragAddNode(newNodes,newEdges);
+      }
+      
     },
     [reactFlowInstance]
-  );
-
-  console.log("nodes",nodes);
-  console.log('edges', edges);
+    );
+    
+    console.log("nodes",nodes);
+    console.log('edges', edges);
   //fn for save & restore
   const onSave = useCallback(() => {
     if (reactFlowInstance) {

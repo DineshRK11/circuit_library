@@ -75,6 +75,7 @@ set({
       if(res){
         setTimeout(() => {
           alert("Added Succesfully")
+          window.location.reload();
       }, 500);  
       }
     }catch(err){

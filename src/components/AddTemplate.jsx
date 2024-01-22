@@ -28,13 +28,13 @@ const AddTemplate = ({ open,handleClose, savedTemplate,setNodes,setEdges }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const Id = template.length;
-    console.log("nodes.length", template.length);
+    // console.log("nodes.length", template.length);
     const newTemplate ={
         id:`${Id + 1}`,
         name:templateName,
         template:savedTemplate,
     }
-   console.log('newTemplate', newTemplate)
+  //  console.log('newTemplate', newTemplate)
     addTemplate(newTemplate);
     setTimeout(()=>{
         fetchAPI()

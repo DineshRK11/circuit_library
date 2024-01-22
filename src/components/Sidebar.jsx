@@ -49,7 +49,6 @@ function Sidebar() {
           onDragStart={(event) => onDragStart(event, text)}
           onClick={() => handleDetailsOpen(text)}
           draggable
-          disablePadding 
           >
         {text["name"]}
           </div>
