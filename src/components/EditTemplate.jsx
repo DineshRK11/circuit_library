@@ -137,16 +137,16 @@ export default function EditPage() {
       if (parsedTemplate) {
         let newNodes = [];
         let newEdges = [];
-      const randomId = Math.floor(Math.random()*1000)
-      const randomPos = Math.floor(Math.random()*100)
+        const randomId = Math.floor(Math.random() * 1000);
+        const randomPos = Math.floor(Math.random() * 100);
         parsedTemplate["nodes"].map((node, i) => {
           newNodes.push({
             id: `${node.id + randomId}`,
             data: node.data,
             type: node.type,
-            position:{
-              x:node['position']['x']+randomPos,
-              y:node['position']['y']+randomPos
+            position: {
+              x: node["position"]["x"] + randomPos,
+              y: node["position"]["y"] + randomPos,
             },
             properties: node.properties,
           });
@@ -155,16 +155,14 @@ export default function EditPage() {
         parsedTemplate["edges"].map((edge, i) =>
           newEdges.push({
             id: uid(),
-            source:`${edge.source+randomId}`,
-            target: `${edge.target+randomId}`,
+            source: `${edge.source + randomId}`,
+            target: `${edge.target + randomId}`,
             ...edgeOptions,
           })
         );
 
         dragAddNode(newNodes, newEdges);
-
       }
-    
     },
     [reactFlowInstance]
   );
@@ -287,26 +285,53 @@ export default function EditPage() {
                 display: "flex",
                 gap: 5,
                 marginTop: "2rem",
-                background: "white",
+                background: "transparent",
                 marginLeft: "2rem",
               }}
             >
-              <Button variant="outlined" onClick={onSave}>
+              <Button
+                variant="outlined"
+                onClick={onSave}
+                sx={{ background: "white" }}
+              >
                 Save
               </Button>
-              <Button variant="outlined" onClick={onRestore}>
+              <Button
+                variant="outlined"
+                onClick={onRestore}
+                sx={{ background: "white" }}
+              >
                 Restore
               </Button>
-              <Button variant="outlined" onClick={handleSave}>
+              <Button
+                variant="outlined"
+                onClick={handleSave}
+                sx={{ background: "white" }}
+              >
                 Update
               </Button>
               <Button
                 variant="outlined"
                 className="download-btn"
                 onClick={handleDownload}
+                sx={{ background: "white" }}
               >
                 Download Image
               </Button>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  ml: 6,
+                  boxShadow: "0px 0px 2px gray",
+                  background: "white",
+                  px: 3,
+                  textShadow: "1px 1px 2px #784be8",
+                }}
+              >
+                {selectedTemplate?.name}
+              </Box>
             </Panel>
 
             <Controls />

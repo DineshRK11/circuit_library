@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
-import './index.css'
+import "./index.css";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import {
@@ -13,7 +13,7 @@ import {
   Typography,
 } from "@mui/material";
 import useStore from "../store/store";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 const drawerWidth = 180;
 
@@ -26,7 +26,7 @@ const selector = (state) => ({
 function Sidebar() {
   const { template, fetchAPI, deleteTemplate } = useStore(selector);
   const [hovered, setHovered] = useState(-1);
-  const [selected, setSelected] = useState(-1);
+  // const [selected, setSelected] = useState('');
   const [removeId, setRemoveId] = useState("");
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
@@ -57,14 +57,8 @@ function Sidebar() {
     setTimeout(() => {
       fetchAPI();
       handleClose();
-      window.location.href='/'
+      window.location.href = "/";
     }, 100);
-  };
-
-  const handleDetailsOpen = (text, index) => {
-    console.log("text", text);
-    navigate(`/edit/${text.id}`);
-    setSelected(index);
   };
 
   const onDragStart = (event, item) => {
@@ -81,29 +75,27 @@ function Sidebar() {
           Libraries
         </Typography>
         {template.map((text, index) => (
-          <div
+          <NavLink
+            // to={`/edit/${text.id}`}
             key={index}
             className={`library ${text.name}`}
-            style={{
-              background:
-                selected === index ? "rgba(25, 118, 210,0.15)" : "none",
-            }}
             onDragStart={(event) => onDragStart(event, text)}
-            onClick={() => handleDetailsOpen(text, index)}
+            onClick={() => (window.location.href = `/edit/${text.id}`)}
             draggable
             onPointerEnter={() => handleHover(index)}
             onPointerLeave={handleEndHover}
           >
             {text["name"]}
 
-              <span 
+            <span
               onClick={() => handleClickOpen(text)}
               style={{
                 display: hovered === index ? "inline" : "none",
-                position:'relative',
-                left:'20px'
-              }}>
-
+                position: "relative",
+                left: "20px",
+                top: "3px",
+              }}
+            >
               <DeleteForeverIcon
                 sx={{
                   fontSize: 16,
@@ -111,7 +103,7 @@ function Sidebar() {
                 }}
               />
             </span>
-          </div>
+          </NavLink>
         ))}
       </List>
       <Button
