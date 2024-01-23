@@ -106,6 +106,20 @@ set({
     const res = await axios.post(`http://localhost:4000/sidebarNode`,newNode);
 
   },
+  deleteNode:async(id)=>{
+    const res=await axios.delete(`http://localhost:4000/sidebarNode/${id}`)
+    console.log('res', res)
+  },
+
+  deleteTemplate:async(id)=>{
+    const res=await axios.delete(`http://localhost:4000/template/${id}`)
+    console.log('res', res)
+    if(res){
+      setTimeout(() => {
+        alert("Deleted Succesfully")
+    }); 
+    }
+  }
 
 
 }));

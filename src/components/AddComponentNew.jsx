@@ -14,6 +14,7 @@ import Select from "@mui/material/Select";
 import Chip from "@mui/material/Chip";
 import { useTheme } from "@mui/material/styles";
 import useStore from "../store/store";
+import {v4 as uid} from 'uuid'
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -86,9 +87,8 @@ const AddComponentNew = ({ open, handleClose, getSidebarNode }) => {
 // For Adding new Node
   const handleSubmit = (e) => {
     e.preventDefault();
-    const Id = nodeState.length;
     const dataNode = {
-      id: `${Id + 1}`,
+      id: uid(),
       data: { label: newNode.nodeName },
       type: newNode.type,
       properties: newNode.properties,

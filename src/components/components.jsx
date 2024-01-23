@@ -5,17 +5,20 @@ import Box from "@mui/material/Box";
 import useStore from "../store/store";
 import AddIcon from "@mui/icons-material/Add";
 import AddComponentNew from "./AddComponentNew";
+import RemoveIcon from "@mui/icons-material/Remove";
 
 const drawerWidth = 180;
 
 const selector = (state) => ({
   sidebarNodes: state.sidebarNodes,
   getSidebarNode: state.getSidebarNode,
+  deleteNode: state.deleteNode,
 });
+
+
 const Components = () => {
   const [open, setOpen] = useState(false);
-  const { sidebarNodes, getSidebarNode } = useStore(selector);
-
+  const { sidebarNodes, getSidebarNode, deleteNode } = useStore(selector);
   useEffect(() => {
     getSidebarNode();
   }, []);
@@ -28,6 +31,14 @@ const Components = () => {
   const handleClose = () => {
     setOpen(false);
   };
+  const handleDelete = (id) => {
+    deleteNode(id);
+    setTimeout(() => {
+      getSidebarNode();
+    }, 100);
+  };
+
+
 
   //To drag a element the data can be retrieved by using the setData's key
   const onDragStart = (event, item) => {
@@ -74,8 +85,23 @@ const Components = () => {
               className={`dndnode ${item.type}`}
               onDragStart={(event) => onDragStart(event, item)}
               draggable
+            
             >
               {item.data["label"]}
+              <span onClick={() => handleDelete(item.id)}
+              >
+                <RemoveIcon
+                  sx={{
+                    fontSize: 16,
+                    ml: 1,
+                    cursor: "pointer",
+                    background: "#aeaeae",
+                    borderRadius: 10,
+                    color: "white",
+                    display:'grid'
+                  }}
+                />
+              </span>
             </div>
           ))}
           <IconButton

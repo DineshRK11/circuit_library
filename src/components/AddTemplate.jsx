@@ -7,11 +7,11 @@ import { Button } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import useStore from "../store/store";
+import {v4 as uid} from 'uuid'
 
 
 
 const selector = (state) => ({
-    template:state.template,
   addTemplate:state.addTemplate,
   fetchAPI:state.fetchAPI,
 });
@@ -21,20 +21,18 @@ const selector = (state) => ({
 const AddTemplate = ({ open,handleClose, savedTemplate,setNodes,setEdges }) => {
 
   const [templateName, setTemplateName] = useState("");
-  const { template, addTemplate, fetchAPI} = useStore(selector);
+  const { addTemplate, fetchAPI} = useStore(selector);
 
 
   // For adding a new Template
   const handleSubmit = (e) => {
     e.preventDefault();
-    const Id = template.length;
-    // console.log("nodes.length", template.length);
     const newTemplate ={
-        id:`${Id + 1}`,
+        id:uid(),
         name:templateName,
         template:savedTemplate,
     }
-  //  console.log('newTemplate', newTemplate)
+
     addTemplate(newTemplate);
     setTimeout(()=>{
         fetchAPI()
