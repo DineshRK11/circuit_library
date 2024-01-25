@@ -14,7 +14,7 @@ import Select from "@mui/material/Select";
 import Chip from "@mui/material/Chip";
 import { useTheme } from "@mui/material/styles";
 import useStore from "../store/store";
-import {v4 as uid} from 'uuid'
+import { v4 as uid } from "uuid";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -56,10 +56,11 @@ const AddComponentNew = ({ open, handleClose, getSidebarNode }) => {
     nodeName: "",
     type: "",
     properties: [],
+    bgColor: "#000",
   });
   const { addNode, nodeState } = useStore(selector);
 
-//Name & type for the new Node
+  //Name & type for the new Node
   const handleChangeName = (event) => {
     setNewNode({
       ...newNode,
@@ -84,12 +85,12 @@ const AddComponentNew = ({ open, handleClose, getSidebarNode }) => {
     });
   };
 
-// For Adding new Node
+  // For Adding new Node
   const handleSubmit = (e) => {
     e.preventDefault();
     const dataNode = {
       id: uid(),
-      data: { label: newNode.nodeName },
+      data: { label: newNode.nodeName,bgColor:newNode.bgColor },
       type: newNode.type,
       properties: newNode.properties,
     };
@@ -104,9 +105,9 @@ const AddComponentNew = ({ open, handleClose, getSidebarNode }) => {
       nodeName: "",
       type: "",
       properties: [],
+      bgColor: "#000",
     });
   };
-
 
   const CloseModel = () => {
     handleClose();
@@ -114,6 +115,7 @@ const AddComponentNew = ({ open, handleClose, getSidebarNode }) => {
       nodeName: "",
       type: "",
       properties: [],
+      bgColor: "#000",
     });
   };
   return (
@@ -143,7 +145,13 @@ const AddComponentNew = ({ open, handleClose, getSidebarNode }) => {
             >
               <MenuItem value="input">Input</MenuItem>
               <MenuItem value="default">Default</MenuItem>
+              <MenuItem value="signal">Signal</MenuItem>
+              <MenuItem value="receiver">Receiver</MenuItem>
               <MenuItem value="output">Output</MenuItem>
+              <MenuItem value="transceiver">Transceiver</MenuItem>
+              <MenuItem value="transmitter">Transmitter</MenuItem>
+
+
             </Select>
           </FormControl>
           <FormControl sx={{ width: 350 }}>
@@ -179,6 +187,16 @@ const AddComponentNew = ({ open, handleClose, getSidebarNode }) => {
               ))}
             </Select>
           </FormControl>
+          <label>
+            Choose Node color :{" "}
+            <input
+              type="color"
+              value={newNode.bgColor}
+              onChange={(e) =>
+                setNewNode({ ...newNode, bgColor: e.target.value })
+              }
+            />
+          </label>
         </Box>
       </DialogContent>
       <DialogActions>

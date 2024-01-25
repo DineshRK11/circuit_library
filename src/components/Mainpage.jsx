@@ -17,6 +17,12 @@ import { shallow } from "zustand/shallow";
 import "reactflow/dist/style.css";
 import AddTemplate from "./AddTemplate";
 import { v4 as uid } from "uuid";
+import CustomNode from "./custom/customNode";
+import DefaultNode from "./custom/DefaultNode";
+import InputNode from "./custom/InputNode";
+import OutputNode from "./custom/OutputNode";
+import CircularNode from "./custom/CircularNode";
+import DiagonalNode from "./custom/DiagonalNode ";
 
 const selector = (state) => ({
   nodes: state.nodes,
@@ -25,7 +31,7 @@ const selector = (state) => ({
   onEdgesChange: state.onEdgesChange,
   onConnect: state.onConnect,
   dragAdd: state.dragAdd,
-  dragAddNode:state.dragAddNode,
+  dragAddNode: state.dragAddNode,
   setNodes: state.setNodes,
   setEdges: state.setEdges,
 });
@@ -33,29 +39,36 @@ const selector = (state) => ({
 //Edge line styling
 const connectionLineStyle = { stroke: "black" };
 const edgeOptions = {
+  type: "smoothstep",
   markerEnd: {
     type: MarkerType.ArrowClosed,
     width: 20,
     height: 20,
-    color: "#FF0072",
+    color: "black",
   },
-  markerStart: {
-    type: MarkerType.ArrowClosed,
-    width: 20,
-    height: 20,
-    color: "#FF0072",
-  },
-  animated: true,
+  // markerStart: {
+  //   type: MarkerType.ArrowClosed,
+  //   width: 20,
+  //   height: 20,
+  //   color: "#FF0072",
+  // },
+  animated: false,
   style: {
-    stroke: "black",
+    stroke: "aqua",
   },
 };
 
-const flowKey = "example-flow";
+const nodetypes = {
+  input: InputNode,
+  output: OutputNode,
+  default: DefaultNode,
+  receiver: CustomNode,
+  signal: CustomNode,
+  transmitter: CircularNode,
+  transceiver: DiagonalNode,
+};
 
-//fn for new Id creation
-// let id = 0;
-// const getId = () => `N${id++}`;
+const flowKey = "example-flow";
 
 export default function Mainpage() {
   const {
@@ -130,10 +143,10 @@ export default function Mainpage() {
       const template = event.dataTransfer.getData("application/template");
       let parsedNode;
       let parsedTemplate;
-      if(file){
-       parsedNode = JSON.parse(file);
-      }else{
-       parsedTemplate = JSON.parse(template)
+      if (file) {
+        parsedNode = JSON.parse(file);
+      } else {
+        parsedTemplate = JSON.parse(template);
       }
 
       // if (typeof parsedNode === "undefined" || !parsedNode || typeof parsedTemplate === "undefined" || !parsedTemplate) {
@@ -144,58 +157,56 @@ export default function Mainpage() {
         x: event.clientX,
         y: event.clientY,
       });
-      if(parsedNode){
-      const newNode = {
-        id: uid(),
-        type: parsedNode.type,
-        position,
-        properties: parsedNode.properties,
-        data: { label: parsedNode.data["label"] },
-      };
-      dragAdd(newNode);
-
-      
-    };
-
-    
-    if(parsedTemplate){
-      let newNodes=[];
-      let newEdges=[];  
-      const randomId = Math.floor(Math.random()*1000)
-      const randomPos = Math.floor(Math.random()*100)
-
-      parsedTemplate['nodes'].map((node,i)=>{
-        newNodes.push({
-          id:`${node.id + randomId}`,
-          data:node.data,
-          type:node.type,
-          position:{
-            x:node['position']['x']+randomPos,
-            y:node['position']['y']+randomPos
+      if (parsedNode) {
+        const newNode = {
+          id: uid(),
+          type: parsedNode.type,
+          position,
+          properties: parsedNode.properties,
+          data: {
+            label: parsedNode.data["label"],
+            bgColor: parsedNode.data["bgColor"],
           },
-          properties:node.properties,
-          
-        })
-      })
-      
-      parsedTemplate['edges'].map((edge,i)=>(
-        newEdges.push({
-          id:uid(),
-          source:`${edge.source+randomId}`,
-          target: `${edge.target+randomId}`,
-          ...edgeOptions,
-        })
-        ))
-        
-        dragAddNode(newNodes,newEdges);
+        };
+        dragAdd(newNode);
       }
-      
+
+      if (parsedTemplate) {
+        let newNodes = [];
+        let newEdges = [];
+        const randomId = Math.floor(Math.random() * 1000);
+        const randomPos = Math.floor(Math.random() * 500);
+
+        parsedTemplate["nodes"].map((node, i) => {
+          newNodes.push({
+            id: `${node.id + randomId}`,
+            data: node.data,
+            type: node.type,
+            position: {
+              x: node["position"]["x"] + randomPos,
+              y: node["position"]["y"] + randomPos,
+            },
+            properties: node.properties,
+          });
+        });
+
+        parsedTemplate["edges"].map((edge, i) =>
+          newEdges.push({
+            id: uid(),
+            source: `${edge.source + randomId}`,
+            target: `${edge.target + randomId}`,
+            ...edgeOptions,
+          })
+        );
+
+        dragAddNode(newNodes, newEdges);
+      }
     },
     [reactFlowInstance]
-    );
-    
-    console.log("nodes",nodes);
-    console.log('edges', edges);
+  );
+
+  // console.log("nodes",nodes);
+  // console.log('edges', edges);
   //fn for save & restore
   const onSave = useCallback(() => {
     if (reactFlowInstance) {
@@ -231,9 +242,9 @@ export default function Mainpage() {
     <Box
       sx={{
         width: {
-          lg: `78vw`,
-          md: "70vw",
-          sm: "65vw",
+          lg: `74vw`,
+          md: "65vw",
+          sm: "48vw",
           xs: "90vw",
         },
         height: "89vh",
@@ -249,12 +260,18 @@ export default function Mainpage() {
             onNodesChange={onNodesChange}
             onEdgesChange={onEdgesChange}
             onConnect={onConnect}
+            nodeTypes={nodetypes}
             connectionLineStyle={connectionLineStyle}
             defaultEdgeOptions={edgeOptions}
             onInit={setReactFlowInstance}
             onDrop={onDrop}
             onDragOver={onDragOver}
             fitView
+            style={{
+              " .react-flow__node": {
+                backgroundColor: "black",
+              },
+            }}
           >
             <Panel
               position="top-left"
@@ -266,14 +283,14 @@ export default function Mainpage() {
                 marginTop: "2rem",
               }}
             >
-              <Button  variant="outlined" onClick={onSave}>
+              <Button variant="outlined" onClick={onSave}>
                 Save
               </Button>
               <Button variant="outlined" onClick={onRestore}>
                 Restore
               </Button>
               <Button variant="outlined" onClick={handleSave}>
-                Add 
+                Add
               </Button>
               <Button
                 variant="outlined"
@@ -293,8 +310,8 @@ export default function Mainpage() {
         open={openTemplate}
         handleClose={handleClose}
         savedTemplate={savedTemplate}
-        setNodes ={setNodes}
-        setEdges ={setEdges}
+        setNodes={setNodes}
+        setEdges={setEdges}
       />
     </Box>
   );

@@ -17,6 +17,12 @@ import { shallow } from "zustand/shallow";
 import "reactflow/dist/style.css";
 import { useParams } from "react-router-dom";
 import { v4 as uid } from "uuid";
+import CustomNode from "./custom/customNode";
+import DefaultNode from "./custom/DefaultNode";
+import InputNode from "./custom/InputNode";
+import OutputNode from "./custom/OutputNode";
+import CircularNode from "./custom/CircularNode";
+import DiagonalNode from "./custom/DiagonalNode ";
 
 //state from Store/zustand
 const selector = (state) => ({
@@ -37,23 +43,35 @@ const selector = (state) => ({
 //Edge line styling
 const connectionLineStyle = { stroke: "black" };
 const edgeOptions = {
+  type: 'smoothstep',
   markerEnd: {
     type: MarkerType.ArrowClosed,
     width: 20,
     height: 20,
-    color: "#FF0072",
+    color: "black",
   },
-  markerStart: {
-    type: MarkerType.ArrowClosed,
-    width: 20,
-    height: 20,
-    color: "#FF0072",
-  },
-  animated: true,
+  // markerStart: {
+  //   type: MarkerType.ArrowClosed,
+  //   width: 20,
+  //   height: 20,
+  //   color: "#FF0072",
+  // },
+  animated: false,
   style: {
-    stroke: "black",
+    stroke: "aqua",
   },
 };
+
+const nodetypes={
+  input:InputNode,
+  output:OutputNode,
+  default:DefaultNode,
+  receiver:CustomNode,
+  signal:CustomNode,
+  transmitter:CircularNode,
+  transceiver:DiagonalNode,
+}
+
 
 const flowKey = "example-flow";
 
@@ -78,9 +96,6 @@ export default function EditPage() {
   //   const { getNodes } = useReactFlow();
   const { id } = useParams();
 
-  //Id creating fn
-  let Id = nodes.length;
-  const getId = () => `N${Id++}`;
 
   useEffect(() => {
     getTemplate(id);
@@ -129,7 +144,7 @@ export default function EditPage() {
           type: parsedNode.type,
           position,
           properties: parsedNode.properties,
-          data: { label: parsedNode.data["label"] },
+          data: { label: parsedNode.data["label"],bgColor:parsedNode.data["bgColor"]  },
         };
         dragAdd(newNode);
       }
@@ -138,7 +153,7 @@ export default function EditPage() {
         let newNodes = [];
         let newEdges = [];
         const randomId = Math.floor(Math.random() * 1000);
-        const randomPos = Math.floor(Math.random() * 100);
+        const randomPos = Math.floor(Math.random() * 500);
         parsedTemplate["nodes"].map((node, i) => {
           newNodes.push({
             id: `${node.id + randomId}`,
@@ -251,9 +266,9 @@ export default function EditPage() {
     <Box
       sx={{
         width: {
-          lg: `78vw`,
-          md: "70vw",
-          sm: "65vw",
+          lg: `74vw`,
+          md: "65vw",
+          sm: "48vw",
           xs: "90vw",
         },
         height: "89vh",
@@ -269,6 +284,7 @@ export default function EditPage() {
             onNodesChange={onNodesChange}
             onEdgesChange={onEdgesChange}
             onConnect={onConnect}
+            nodeTypes={nodetypes}
             connectionLineStyle={connectionLineStyle}
             defaultEdgeOptions={edgeOptions}
             onInit={setReactFlowInstance}

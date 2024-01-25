@@ -14,7 +14,7 @@ const Navbar = () => {
             component="div"
             sx={{ display: "flex", lexGrow: 1 }}
           >
-            Task
+            Circuits
           </Typography>
         </Toolbar>
       </AppBar>

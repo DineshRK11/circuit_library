@@ -15,7 +15,6 @@ const selector = (state) => ({
   deleteNode: state.deleteNode,
 });
 
-
 const Components = () => {
   const [open, setOpen] = useState(false);
   const { sidebarNodes, getSidebarNode, deleteNode } = useStore(selector);
@@ -37,8 +36,6 @@ const Components = () => {
       getSidebarNode();
     }, 100);
   };
-
-
 
   //To drag a element the data can be retrieved by using the setData's key
   const onDragStart = (event, item) => {
@@ -70,7 +67,7 @@ const Components = () => {
               position: "fixed",
               right: 0,
               top: "4rem",
-              pt: 1,
+              // pt: 1,
               border: "none",
               overflowY: "auto",
               ml: `${drawerWidth}px`,
@@ -79,17 +76,28 @@ const Components = () => {
           }}
           open
         >
+          <div
+            style={{
+              margin: "5px",
+              fontSize: "20px",
+              textShadow: "1px 1px",
+            }}
+          >
+            Nodes
+          </div>
           {sidebarNodes.map((item, i) => (
             <div
               key={i}
               className={`dndnode ${item.type}`}
+              style={{
+                border: `0.5px solid ${item?.data?.bgColor}`,
+                boxShadow: `0px 0px 5px ${item?.data?.bgColor}`,
+              }}
               onDragStart={(event) => onDragStart(event, item)}
               draggable
-            
             >
               {item.data["label"]}
-              <span onClick={() => handleDelete(item.id)}
-              >
+              <span onClick={() => handleDelete(item.id)}>
                 <RemoveIcon
                   sx={{
                     fontSize: 16,
@@ -98,7 +106,7 @@ const Components = () => {
                     background: "#aeaeae",
                     borderRadius: 10,
                     color: "white",
-                    display:'grid'
+                    display: "grid",
                   }}
                 />
               </span>
@@ -117,20 +125,6 @@ const Components = () => {
           >
             <AddIcon sx={{ fontSize: 20 }} />
           </IconButton>
-          {/* <Button
-            variant="outlined"
-            onClick={handleOpen}
-            sx={{ 
-              width:'fit-content',
-              height:'fit-content',
-              borderWidth:2,
-              borderRadius:50,
-              p:'2px'
-            }}
-          >
-            <AddIcon sx={{fontSize:20}}/>
-            
-          </Button> */}
         </Drawer>
       </Box>
       <AddComponentNew
@@ -138,7 +132,6 @@ const Components = () => {
         handleClose={handleClose}
         getSidebarNode={getSidebarNode}
       />
-      {/* <AddComponent open={open} handleClose={handleClose}/> */}
     </Box>
   );
 };

@@ -71,28 +71,39 @@ function Sidebar() {
   const drawer = (
     <div>
       <List>
-        <Typography sx={{ fontSize: 18, fontWeight: 700, my: 1 }}>
+        <Typography
+          sx={{ 
+            fontSize: 18, 
+            fontWeight: 700, 
+            my: 1, 
+            textShadow: "1px 1px",
+            fontFamily:'Inter',
+           }}
+        >
           Libraries
         </Typography>
         {template.map((text, index) => (
-          <NavLink
+          <div
             // to={`/edit/${text.id}`}
             key={index}
             className={`library ${text.name}`}
             onDragStart={(event) => onDragStart(event, text)}
-            onClick={() => (window.location.href = `/edit/${text.id}`)}
             draggable
             onPointerEnter={() => handleHover(index)}
             onPointerLeave={handleEndHover}
           >
-            {text["name"]}
-
+            <span
+              className="library_name"
+              onClick={() => (window.location.href = `/edit/${text.id}`)}
+            >
+              {text["name"]}
+            </span>
             <span
               onClick={() => handleClickOpen(text)}
               style={{
                 display: hovered === index ? "inline" : "none",
                 position: "relative",
-                left: "20px",
+                // left: "20px",
                 top: "3px",
               }}
             >
@@ -103,7 +114,7 @@ function Sidebar() {
                 }}
               />
             </span>
-          </NavLink>
+          </div>
         ))}
       </List>
       <Button

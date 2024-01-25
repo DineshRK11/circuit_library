@@ -3,45 +3,98 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import { Button } from "@mui/material";
+import {
+  Button,
+  Chip,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  OutlinedInput,
+  Select,
+} from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import useStore from "../store/store";
-import {v4 as uid} from 'uuid'
-
+import { v4 as uid } from "uuid";
+import { useTheme } from "@mui/material/styles";
 
 
 const selector = (state) => ({
-  addTemplate:state.addTemplate,
-  fetchAPI:state.fetchAPI,
+  addTemplate: state.addTemplate,
+  fetchAPI: state.fetchAPI,
 });
 
+const names = [
+  "Confidentiality",
+  "Integrity",
+  "Authenticity",
+  "Authorization",
+  "Non-repudiation",
+  "Availability",
+];
 
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 300,
+    },
+  },
+};
 
-const AddTemplate = ({ open,handleClose, savedTemplate,setNodes,setEdges }) => {
+function getStyles(name, nodes, theme) {
+  return {
+    fontWeight:
+      nodes.indexOf(name) === -1
+        ? theme.typography.fontWeightRegular
+        : theme.typography.fontWeightMedium,
+  };
+}
 
-  const [templateName, setTemplateName] = useState("");
-  const { addTemplate, fetchAPI} = useStore(selector);
+const AddTemplate = ({
+  open,
+  handleClose,
+  savedTemplate,
+  setNodes,
+  setEdges,
+}) => {
+  const theme = useTheme();
+  const [templateDetails, setTemplateDetails] = useState({
+    name: "",
+    properties: [],
+  });
+  const { addTemplate, fetchAPI } = useStore(selector);
 
+  const handleChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setTemplateDetails({
+      ...templateDetails,
+      properties: typeof value === "string" ? value.split(",") : value,
+    });
+  };
 
   // For adding a new Template
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newTemplate ={
-        id:uid(),
-        name:templateName,
-        template:savedTemplate,
-    }
+    const newTemplate = {
+      id: uid(),
+      name: templateDetails?.name,
+      template: savedTemplate,
+      properties: templateDetails?.properties,
+    };
 
     addTemplate(newTemplate);
-    setTimeout(()=>{
-        fetchAPI()
-    })
-    handleClose()
-    setNodes([])
-    setEdges([])
+    setTimeout(() => {
+      fetchAPI();
+    });
+    handleClose();
+    setNodes([]);
+    setEdges([]);
   };
-
 
   return (
     <Dialog
@@ -51,19 +104,57 @@ const AddTemplate = ({ open,handleClose, savedTemplate,setNodes,setEdges }) => {
       aria-describedby="alert-dialog-description"
     >
       <DialogTitle id="alert-dialog-title">{"Add New "}</DialogTitle>
-      <DialogContent >
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 2,my:1 }}>
+      <DialogContent>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 2, my: 1 }}>
           <TextField
             id="outlined-basic"
             label="Name"
             variant="outlined"
-            onChange={(e) => setTemplateName(e.target.value)}
+            onChange={(e) =>
+              setTemplateDetails({ ...templateDetails, name: e.target.value })
+            }
           />
-
+          <FormControl sx={{ width: 350 }}>
+            <InputLabel notched id="demo-multiple-chip-label">
+              Properties
+            </InputLabel>
+            <Select
+              labelId="demo-multiple-chip-label"
+              id="demo-multiple-chip"
+              multiple
+              value={templateDetails.properties}
+              onChange={handleChange}
+              input={
+                <OutlinedInput id="select-multiple-chip" label="Properties" />
+              }
+              renderValue={(selected) => (
+                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+                  {selected.map((value) => (
+                    <Chip key={value} label={value} />
+                  ))}
+                </Box>
+              )}
+              MenuProps={MenuProps}
+            >
+              {names.map((name) => (
+                <MenuItem
+                  key={name}
+                  value={name}
+                  style={getStyles(name, templateDetails.properties, theme)}
+                >
+                  {name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </Box>
       </DialogContent>
       <DialogActions>
-        <Button variant="contained" onClick={handleSubmit}  disabled={!templateName}>
+        <Button
+          variant="contained"
+          onClick={handleSubmit}
+          disabled={!templateDetails.name || !templateDetails.properties.length>0}
+        >
           Add Template
         </Button>
       </DialogActions>

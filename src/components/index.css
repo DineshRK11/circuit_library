@@ -2,8 +2,8 @@
    .dndnode {
     height: 20px;
     padding: 4px 8px;
-    border: 2px solid rgb(233, 233, 85);
-    box-shadow: 0px 0px 5px rgb(233, 233, 85);
+    /* border: 2px solid #16c260;
+    box-shadow: 0px 0px 5px #16c260; */
     border-radius: 20px;
     margin-bottom: 10px;
     display: flex;
@@ -13,17 +13,14 @@
     width: fit-content;
     font-family:'Inter', sans-serif;
     font-size: 16px;   
-  }
-  
-  .dndnode.input {
-    border-color: #16c260;
-    box-shadow: 0px 0px 5px #16c260;
-  }
-  
-   .dndnode.output {
-    border-color: #ff0072;
-    box-shadow: 0px 0px 5px #ff0072;
 
+   /* &.input:before{
+     content: '';
+     border: 5px solid black;
+     border-radius: 50%; 
+     position: relative;
+     left: -4px;
+   } */
   }
   
    .reactflow-wrapper {
@@ -44,32 +41,23 @@
   }
   
   .react-flow .react-flow__handle {
-    width: 20px;
+    width: 15px;
     height: 10px;
     border-radius: 3px;
     background-color: #784be8;
   }
 
-.react-flow__node-input{
-   background-color: rgb(184, 253, 185);
-  }
-
-  .react-flow__node-default{
-    background-color: rgb(235, 252, 85);
+   .react-flow__node{
+    padding: 0;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
    }
 
-   .react-flow__node-output{
-    background-color: rgb(255, 133, 169);
-   }
-  
    .library{
     padding: 0.5rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color: black;
-    
 
     &:hover{
       background-color: aliceblue;
@@ -77,3 +65,36 @@
       text-shadow:1px 1px 2px #784be8;
     }
    }
+
+   .library_name{
+     padding: 1px 1.5rem;
+     cursor: pointer;
+   }
+
+   .my-custom-node{
+    width: 150px ;
+    height: 40px ;
+    display:flex ;
+    align-items: center ;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 3px;
+   }
+   .circular-node{
+    width: 120px ;
+    height: 120px ;
+    border-radius: 50%;
+    display:flex ;
+    align-items: center ;
+    justify-content: center;
+   }
+
+.diagonal-node{
+  width: 120px ;
+  height: 150px ;
+  border-radius: 5%;
+  display:flex ;
+  padding-top: 15%;
+  align-items: start ;
+  justify-content: center;
+}
