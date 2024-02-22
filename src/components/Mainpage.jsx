@@ -54,7 +54,7 @@ const edgeOptions = {
   // },
   animated: false,
   style: {
-    stroke: "aqua",
+    stroke: "gray",
   },
 };
 
